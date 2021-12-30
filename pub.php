@@ -1,8 +1,8 @@
  <?php
  function pubMqtt($topic,$msg){
        $APPID= "JARVISLED/"; //enter your appid
-     $KEY = "kTwFSJxnqE0IXLC"; //enter your key
-    $SECRET = "oQR5YB7Ck5Z1qi4d3mzSDqFEu"; //enter your secret
+     $KEY = "3y6lKWs3EHtF72s"; //enter your key
+    $SECRET = "Qy4fZypRGpw7G8dSvc5dy3UlP"; //enter your secret
     $Topic = "$topic"; 
       put("https://api.netpie.io".$APPID.$Topic."?retain&auth=".$KEY.":".$SECRET,$msg);
  
