@@ -2,15 +2,15 @@
 #include <ESP8266HTTPClient.h>
 #include <MicroGear.h>
 #include <ArduinoJson.h>
-const char* ssid     = "ชื่อ WiFi";  
-const char* password = "รหัสผ่าน WiFi"; 
+const char* ssid     = "Sai";  
+const char* password = "1234567890"; 
 
-const char* host = "---- INPUT ----"; // ตัวอย่างเช่น http://ชื่อappของคุณ.herokuapp.com/bot.php
-#define APPID   "---- INPUT ----" // ชื่อ APP ID ใน NETPIE
-#define KEY     "---- INPUT ----" // key ของ Device Key
-#define SECRET  "---- INPUT ----" // Secret ของ Device Key
+const char* host = "https://jarvisled.herokuapp.com/bot.php"; // ตัวอย่างเช่น http://ชื่อappของคุณ.herokuapp.com/bot.php https://jarvisled.herokuapp.com/
+#define APPID   "JARVISLED" // ชื่อ APP ID ใน NETPIE
+#define KEY     "6cZImaH2psgv9JT" // key ของ Device Key
+#define SECRET  "CrOxPF9NXDp8c1JhhcYUVQY5k" // Secret ของ Device Key
 
-#define ALIAS   "esp8266"  // ตั้งให้ตรงกับชื่อ อุปกรณ์ของ Device Key ใน NETPIE
+#define ALIAS   "NODEMCU"  // ตั้งให้ตรงกับชื่อ อุปกรณ์ของ Device Key ใน NETPIE
 #define TargetWeb "switch"  
 
 WiFiClient client;
@@ -49,16 +49,18 @@ void setup() {
 
   pinMode(D0, OUTPUT);
 
-  if (WiFi.begin(ssid, password)) {
-    while (WiFi.status() != WL_CONNECTED) {
+  if (WiFi.begin(ssid, password)) {//ทำการ Connect SSID และ Pass
+    while (WiFi.status() != WL_CONNECTED) {// ถ้าไม่สามารถเชื่อมต่อได้
+    //Serial.println("Connectiong...  ");  // ทำการ Print "Connectiong..." ทุก 1000ms
       delay(500);
+      //Serial.printf("Connection Status: %d\n", WiFi.status()); // แสดงสถานะการเชื่อมต่อ
       Serial.print(".");
     }
   }
-
+// จะหลุดออกจาก while ก็ต่อเมือ Connected เรียบร้อย
   Serial.println("WiFi connected");
   Serial.println("IP address: ");
-  Serial.println(WiFi.localIP());
+  Serial.println(WiFi.localIP()); // ทำการ Print IP ที่ได้รับมาจาก 
 
   microgear.init(KEY, SECRET, ALIAS);
   microgear.connect(APPID);
