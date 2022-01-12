@@ -4,7 +4,8 @@
      $KEY = "3y6lKWs3EHtF72s"; //enter your key
     $SECRET = "Qy4fZypRGpw7G8dSvc5dy3UlP"; //enter your secret
     $Topic = "$topic"; 
-      put("https://api.netpie.io/Topic/JARVISLED/".$APPID.$Topic."?retain&auth=".$KEY.":".$SECRET,$msg);
+      //put("https://api.netpie.io/Topic/JARVISLED/".$APPID.$Topic."?retain&auth=".$KEY.":".$SECRET,$msg);
+    put("https://api.netpie.io/microgear/".$APPID.$Topic."?retain&auth=".$KEY.":".$SECRET,$msg);
  
   }
  function getMqttfromlineMsg($Topic,$lineMsg){
