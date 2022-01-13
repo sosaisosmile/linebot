@@ -1,3 +1,3 @@
 <?php
-echo  "ไลน์บอท" ;
-echo  "ไลน์บอทJARVIS " ;
+//echo "Line bot  ";
+echo "Line bot J.A.R.V.I.S. "
